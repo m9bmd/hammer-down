@@ -8,7 +8,7 @@ const fontMono = FontMono({
 });
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/ui/Navbar/Navbar";
-import { auth } from "@/auth";
+
 import { Toaster } from "@/components/ui/toaster";
 export const metadata: Metadata = {
   title: "hammer down",
