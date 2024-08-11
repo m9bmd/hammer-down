@@ -1,10 +1,11 @@
-import CreateBlog from "@/components/blog/create/CreateBlog";
+import { createBlog } from "@/actions/blog/createBlog";
+import BlogMaker from "@/components/blog/create/BlogMaker";
 import React from "react";
 
 const CreatePost = () => {
   return (
-    <div className="pt-24  max-w-[42rem] mx-auto">
-      <CreateBlog/>
+    <div className="mx-auto max-w-[42rem] pt-24">
+      <BlogMaker type="create" />
     </div>
   );
 };

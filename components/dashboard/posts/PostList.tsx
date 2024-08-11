@@ -10,8 +10,8 @@ type PostListProps = {
 };
 const PostList = ({ posts }: PostListProps) => {
   return (
-    <div className="space-y-4">
-      {posts?.map((post) => <PostCard key={post.id} post={post} />)}
+    <div className="space-y-4 pb-24">
+      {posts?.map((post) => <PostCard key={post.id} post={post} showMenu/>)}
     </div>
   );
 };

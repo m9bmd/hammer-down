@@ -1,6 +1,12 @@
 import { z } from "zod";
+const CategorySchema = z.object({
+  id: z.string().optional(),
+  name: z.string(),
+});
 
-export const newBlogSchema = z.object({
+export type CategoryType = z.infer<typeof CategorySchema>;
+export const BlogSchema = z.object({
+  id: z.string().optional(),
   title: z
     .string()
     .min(2, "Title must be atleast 2 characters long")
@@ -11,16 +17,16 @@ export const newBlogSchema = z.object({
     .min(5, "content must be atleast 5 characters")
     .max(
       2500,
-      "content is too big to handle, pleae keep it under 2500 characters"
+      "content is too big to handle, pleae keep it under 2500 characters",
     )
     .trim(),
   categories: z
-    .array(z.string())
+    .array(CategorySchema)
     .min(1, "Select at least one category")
     .max(2, "Max Categories reached"),
 });
 
-export type newBlogType = z.infer<typeof newBlogSchema>;
+export type BlogType = z.infer<typeof BlogSchema>;
 export const categoriesArray = [
   "food",
   "economics",
@@ -28,5 +34,3 @@ export const categoriesArray = [
   "fitness",
   "travel",
 ];
-
-

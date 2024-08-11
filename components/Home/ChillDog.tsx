@@ -3,9 +3,12 @@ import React from "react";
 import chillDog from "../../public/chill-dog.png";
 const Footer = () => {
   return (
-    <div className="flex items-center justify-center flex-col  relative pb-6">
+    <div className="relative flex flex-col items-center justify-center pb-6 pt-24">
       <Image
-        src={chillDog}
+      priority={true}
+        src={
+          "https://res.cloudinary.com/duseu6urj/image/upload/f_auto,q_auto/v1/hammer%20down/fw7gvejncmvdixgckven"
+        }
         width={300}
         height={300}
         alt="dog chilling with drink"

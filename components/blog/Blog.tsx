@@ -1,53 +1,99 @@
-import React from "react";
+"use client";
+import { BlogFullType } from "@/types/BlogFullType";
 import { EditorContent, useEditor } from "@tiptap/react";
 import Link from "next/link";
-
-import { useSession } from "next-auth/react";
-
+import React, { useEffect, useState } from "react";
 import { blogExtensions } from "./blogExtenstions";
-import { EditBlogType } from "@/schemas/blog/EditBlogSchema";
-import { newBlogType } from "@/schemas/blog/newBlogSchema";
+import { HammerIcon } from "lucide-react";
+import { Button } from "../ui/button";
+import {
+  hasHammeredBlog,
+  likeBlog,
+  likeBlogProps,
+} from "@/actions/blog/likeBlog";
+import { usePathname } from "next/navigation";
 
-const Blog = ({ title, content, categories }: EditBlogType) => {
-
+//4f5d75
+const Blog = ({ blog }: { blog: BlogFullType }) => {
+  const [likeStatus, setLikeStatus] = useState("");
+  const [hasliked, setHasLiked] = useState(false);
+  const pathName = usePathname();
   const editor = useEditor({
     editorProps: {
-      attributes: { class: "text-muted-foreground  leading-relaxed" },
+      attributes: { class: "text-[#333533]  leading-relaxed text-base" },
     },
     extensions: blogExtensions,
-    content: content,
+    content: blog.content,
     editable: false,
   });
-  return (
-    <div className="space-y-16">
-      <div className="space-y-6">
 
-        {title ? (
-          <h1 className="text-4xl font-bold leading-relaxed text-primary">
-            {title}
-          </h1>
-        ) : (
-          <h1 className="text-4xl text-destructive">No Title No Fun</h1>
-        )}
-        <div className="flex gap-2">
-          {categories.length > 0
-            ? categories.map((category) => (
-                <Link
-                  href={"#"}
-                  className="rounded-md bg-primary/15 px-1.5 py-0.5 text-primary"
-                >
-                  #{category}
-                </Link>
-              ))
-            : null}
-        </div>
+  useEffect(() => {
+    const hasHammereAlready = async () => {
+      const res = await hasHammeredBlog(blog.id);
+      console.log(res)
+      setHasLiked(res);
+    };
+    hasHammereAlready();
+  }, [likeStatus]);
+  const handleLike = async () => {
+    const { message, success } = await likeBlog({
+      pathName: pathName,
+      postId: blog.id,
+    });
+    setLikeStatus(message);
+    setTimeout(() => {
+      setLikeStatus("");
+    }, 5000);
+  };
+
+  return (
+    <article className="space-y-6">
+      <Link href={"#"} className="text-primary">
+        {blog.author.name}
+      </Link>
+      <h1 className="text-3xl font-bold text-primary">{blog.title}</h1>
+      <div className="flex gap-2">
+        {blog.categories.map((category, index) => (
+          <p
+            key={index}
+            // className="flex h-8 cursor-pointer items-center rounded-md border-2 border-b-4 border-r-4 border-b-secondary border-r-secondary px-2 text-sm text-primary transition-all duration-75 hover:border-b hover:border-r"
+            className="border-b-2 border-r-2 border-secondary px-2 text-primary"
+          >
+            {category.name}
+          </p>
+        ))}
       </div>
-      {content ? (
-        <EditorContent editor={editor} />
-      ) : (
-        <p className="whitespace-pre-wrap text-destructive">no ink splashed</p>
-      )}
-    </div>
+      <EditorContent editor={editor} />
+      <footer>
+        <div className="flex flex-col items-center justify-center gap-2">
+          <div className="flex w-fit items-center justify-center rounded-full border-4 p-2 transition-all duration-500">
+            <Button
+              variant={"secondary"}
+              size={"icon"}
+              onClick={handleLike}
+              // className="group h-14 w-14 rounded-full border-2 border-dashed border-secondary bg-transparent p-0 ring-rose-200 transition-transform duration-500 hover:scale-125 hover:border-0 active:ring-2"
+              className={
+                hasliked
+                  ? "group h-14 w-14 rounded-full   border-dashed border-secondary  p-0 ring-rose-200 transition-transform duration-500 scale-125 border-0 active:ring-2"
+                  : "group h-14 w-14 rounded-full border-2 border-dashed border-secondary bg-transparent p-0 ring-rose-200 transition-transform duration-500 hover:scale-125 hover:border-0 active:ring-2"
+              }
+            >
+              <HammerIcon
+                // className="stroke-1 transition-all duration-300 group-hover:rotate-45 group-hover:scale-125"
+                className={
+                  hasliked
+                    ? "rotate-45 scale-125 stroke-1 transition-all duration-300"
+                    : "stroke-1 transition-all duration-300 group-hover:rotate-45 group-hover:scale-125"
+                }
+              />
+            </Button>
+          </div>
+          <p className="text-primary">{blog.hammerCount}</p>
+
+          <p className="mt-2 text-primary">{likeStatus}</p>
+        </div>
+      </footer>
+    </article>
   );
 };
 

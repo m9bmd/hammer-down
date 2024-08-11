@@ -4,19 +4,12 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { EllipsisVerticalIcon, PencilIcon, TrashIcon } from "lucide-react";
-import { navigate } from "@/lib/navigate";
+import { EllipsisVerticalIcon } from "lucide-react";
 import EditButton from "@/components/blog/edit/EditButton";
+import DeleteButton from "@/components/blog/DeleteButton";
 const PostCardMenu = ({ id }: { id: string }) => {
   return (
     <DropdownMenu>
@@ -25,19 +18,13 @@ const PostCardMenu = ({ id }: { id: string }) => {
           <EllipsisVerticalIcon className="h-4 w-4 text-primary" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuGroup>
-          <DropdownMenuItem>
+      <DropdownMenuContent className="bg-background">
+        <DropdownMenuGroup className="space-y-2 bg-background">
+          <DropdownMenuItem className="hover:bg-blue-50" asChild>
             <EditButton id={id} />
           </DropdownMenuItem>
-          <DropdownMenuItem className="">
-            <Button
-              className="flex w-full justify-start"
-              variant={"destructive"}
-            >
-              <TrashIcon className="mr-2 h-4 w-4" />
-              <span>delete</span>
-            </Button>
+          <DropdownMenuItem className="hover:bg-red-50" asChild>
+            <DeleteButton id={id}/>
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>

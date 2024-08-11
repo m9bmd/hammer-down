@@ -11,19 +11,20 @@ type PostWithCategories = Post & {
 
 type PostCardProps = {
   post: PostWithCategories;
+  showMenu: boolean;
 };
 
-const PostCard = ({ post }: PostCardProps) => {
-  const clean = DOMPurify.sanitize(post.content.substring(0, 50));
+const PostCard = ({ post, showMenu }: PostCardProps) => {
+  const cleanHTML = DOMPurify.sanitize(post.content.substring(0, 50));
   return (
     <article className="w-full space-y-4 rounded-md border border-secondary p-4 md:w-[520px]">
       <div className="flex items-baseline justify-between">
         <h2 className="text-lg text-primary">{post.title}</h2>
         {/* <EllipsisVerticalIcon className="h-4 w-5 text-muted-foreground" /> */}
-        <PostCardMenu id={post.id} />
+        {showMenu ? <PostCardMenu id={post.id} /> : null}
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex h-5 items-center gap-2">
         {post.categories.map((category) => (
           <p
             key={category.id}
@@ -33,14 +34,13 @@ const PostCard = ({ post }: PostCardProps) => {
           </p>
         ))}
       </div>
-      <div className="flex items-baseline">
+      <div className="">
         <div
-          className="text-sm text-muted-foreground"
+          className="truncate text-sm text-muted-foreground"
           dangerouslySetInnerHTML={{
-            __html: clean,
+            __html: cleanHTML,
           }}
         ></div>
-        <p className="text-sm text-muted-foreground">....</p>
       </div>
       <footer className="">
         <p className="text-xs text-muted-foreground">

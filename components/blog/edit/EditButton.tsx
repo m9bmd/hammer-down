@@ -11,7 +11,7 @@ const EditButton = ({ id }: { id: string }) => {
       className="flex w-full justify-start"
       onClick={() => navigate(`/blog/edit?id=${id}`)}
     >
-      <PencilIcon className="mr-2 h-4 w-4" />
+      <PencilIcon className="mr-1 h-4 w-4 stroke-[1]" />
       <span>edit</span>
     </Button>
   );

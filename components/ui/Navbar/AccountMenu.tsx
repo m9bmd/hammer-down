@@ -21,32 +21,32 @@ import { NotebookTextIcon, User } from "lucide-react";
 import Link from "next/link";
 const AccountMenu = async () => {
   const session = await auth();
+  // console.log(session);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
         <Avatar>
-          <AvatarImage src={session?.user.image || ""} alt="@shadcn" />
-          <AvatarFallback className="bg-primary/15 text-primary font-bold">
+          <AvatarImage src={session?.user.image || ""} alt="user profile" />
+          <AvatarFallback className="bg-primary/15 font-bold text-primary">
             {"^_^"}
           </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-background shadow-none w-56">
+      <DropdownMenuContent className="w-56 bg-background shadow-none">
         <DropdownMenuLabel className="text-primary">
           My Account
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <User className="mr-2 w-4 h-4 text-primary" />
-            <span className="text-primary">Profile</span>
+            <User className="mr-2 h-4 w-4 text-primary" />
+            <span className="text-primary">{session?.user.name}</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Link href={"/dashboard"} className="flex items-center">
-            <NotebookTextIcon className="mr-2 w-4 h-4 text-primary" />
-            <span className="text-primary">Dashboard</span>
+              <NotebookTextIcon className="mr-2 h-4 w-4 text-primary" />
+              <span className="text-primary">Dashboard</span>
             </Link>
-
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator className="bg-secondary" />

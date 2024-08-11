@@ -78,7 +78,7 @@ model User {
 
 model Post {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  title       String
+  title       String  @unique
   content     String
   hammerCount Int      @default(0)
   createdAt   DateTime @default(now())
@@ -94,13 +94,11 @@ model Post {
   @@map("posts")
 }
 
-
-
 model Category {
-  id        String        @id @default(auto()) @map("_id") @db.ObjectId
-  name      String        @unique
-  createdAt DateTime      @default(now())
-  updatedAt DateTime      @updatedAt
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   posts   Post[]   @relation(fields: [postIds], references: [id])
   postIds String[] @db.ObjectId

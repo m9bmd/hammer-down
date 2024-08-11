@@ -1,35 +1,35 @@
-"use server"
+"use server";
 import { auth } from "@/auth";
-import { newBlogSchema, newBlogType } from "@/schemas/blog/newBlogSchema";
+import { BlogSchema, BlogType } from "@/schemas/blog/BlogSchema";
 import db from "@/lib/db";
-export const createBlog = async (values: newBlogType) => {
-  const { success, data } = newBlogSchema.safeParse(values);
+export const createBlog = async (values: BlogType) => {
+  const { success, data } = BlogSchema.safeParse(values);
   if (!success) {
-    return { error: "invalid field" };
+    return { success: false, message: "invalid field" };
   }
-  const session = await auth()
+  const session = await auth();
   if (!session || !session.user || !session.user.id) {
-    return { error: "Unauthorized" };
+    return { success: false, message: "Unauthorized" };
   }
-  const {title, categories, content} = data
+  const { title, categories, content } = data;
   const blog = await db.post.create({
     data: {
       title,
       content,
       author: {
-        connect:{id:session.user.id}
+        connect: { id: session.user.id },
       },
       categories: {
-        connectOrCreate: categories.map(category => ({
-          where: {name: category},
-          create: {name:category}
-        }))
-      }
+        connectOrCreate: categories.map((category) => ({
+          where: { name: category.name },
+          create: { name: category.name },
+        })),
+      },
     },
     include: {
-      categories:true
-    }
-  })
-  console.log(blog)
-  return { success: "Your post has been created" };
+      categories: true,
+    },
+  });
+  // console.log(blog);
+  return { success: true, message: "Your post has been created" };
 };

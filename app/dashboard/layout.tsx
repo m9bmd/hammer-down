@@ -6,7 +6,7 @@ const layout = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
-  return <div className=" relative h-[calc(100vh_-_64px)] px-2">
+  return <div className=" relative h-[calc(100vh_-_64px)] px-4">
     <DashboardNavbar/>
     {children}
     

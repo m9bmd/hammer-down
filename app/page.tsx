@@ -1,7 +1,7 @@
 import { Button, buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
 import sunflower from "../public/sun-flower.png";
-import RecentBlogs from "@/components/Home/RecentBlogs";
+
 import Footer from "@/components/Home/ChillDog";
 import Link from "next/link";
 
@@ -10,7 +10,8 @@ export default function Home() {
     <div className="px-10 ">
       <div className="flex flex-col items-center pt-28 space-y-4">
         <Image
-          src={sunflower}
+        priority={true}
+          src={"https://res.cloudinary.com/duseu6urj/image/upload/f_auto,q_auto/v1/hammer%20down/nr42nnxkygmzjun3nffu"}
           width={300}
           height={300}
           alt="chill sunflower resting on ground"
@@ -29,7 +30,7 @@ export default function Home() {
           Let's go
         </Link>
       </div>
-      <RecentBlogs />
+      {/* <RecentBlogs /> */}
       <Footer />
     </div>
   );

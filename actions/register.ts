@@ -39,7 +39,7 @@ export const register = async (data: RegisterInputType) => {
     return { success: "confirmation email sent." };
     // navigate("/")
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return { error: "something happened from my side" };
   }
 };
