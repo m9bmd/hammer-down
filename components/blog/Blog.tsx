@@ -88,8 +88,8 @@ const Blog = ({ blog,hasLiked }: { blog: BlogFullType,hasLiked:boolean }) => {
               // className="group h-14 w-14 rounded-full border-2 border-dashed border-secondary bg-transparent p-0 ring-rose-200 transition-transform duration-500 hover:scale-125 hover:border-0 active:ring-2"
               className={
                 hasliked
-                  ? "group h-14 w-14 scale-125 rounded-full border-0 p-0 ring-rose-200 transition-all duration-500 hover:shadow hover:shadow-primary active:ring-2"
-                  : "group h-14 w-14 rounded-full border-2 border-dashed border-secondary bg-transparent p-0 ring-rose-200 transition-transform duration-500 hover:scale-125 hover:border-0 hover:shadow hover:shadow-primary active:ring-2"
+                  ? "group h-14 w-14 scale-125 rounded-full border-0 p-0 ring-rose-200 transition-all duration-500  active:ring-2"
+                  : "group h-14 w-14 rounded-full border-2 border-dashed border-secondary bg-transparent p-0 ring-rose-200 transition-transform duration-500 hover:scale-125 hover:border-0 active:shadow active:shadow-primary active:ring-2"
               }
             >
               <HammerIcon
