@@ -9,8 +9,8 @@ const PostLoading = () => <div>loading posts.....</div>;
 const page = async () => {
   const res = await getUserPosts();
   return (
-    <div className="flex flex-col items-center gap-6 pt-10">
-      <div className="self-start md:mx-auto md:w-[520px]">
+    <div className="mx-auto flex max-w-[640px] flex-col gap-4 pt-12">
+      <div className="w-full">
         <h1 className="text-2xl font-bold text-muted-foreground">
           Your posts: {`${res.posts?.length}`}
         </h1>

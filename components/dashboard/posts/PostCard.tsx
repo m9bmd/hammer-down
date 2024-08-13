@@ -17,7 +17,7 @@ type PostCardProps = {
 const PostCard = ({ post, showMenu }: PostCardProps) => {
   const cleanHTML = DOMPurify.sanitize(post.content.substring(0, 50));
   return (
-    <article className="w-full space-y-4 rounded-md border border-secondary p-4 md:w-[520px]">
+    <article className=" space-y-4 rounded-md border border-secondary p-4 ">
       <div className="flex items-baseline justify-between">
         <h2 className="text-lg text-primary">{post.title}</h2>
         {/* <EllipsisVerticalIcon className="h-4 w-5 text-muted-foreground" /> */}

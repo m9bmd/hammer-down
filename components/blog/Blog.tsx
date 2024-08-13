@@ -14,9 +14,10 @@ import {
 import { usePathname } from "next/navigation";
 
 //4f5d75
-const Blog = ({ blog }: { blog: BlogFullType }) => {
+const Blog = ({ blog,hasLiked }: { blog: BlogFullType,hasLiked:boolean }) => {
   const [likeStatus, setLikeStatus] = useState("");
-  const [hasliked, setHasLiked] = useState(false);
+  const [hasliked, setHasLiked] = useState(hasLiked);
+  const [hammerCount, setHammerCount] = useState(blog.hammerCount);
   const pathName = usePathname();
   const editor = useEditor({
     editorProps: {
@@ -27,23 +28,36 @@ const Blog = ({ blog }: { blog: BlogFullType }) => {
     editable: false,
   });
 
-  useEffect(() => {
-    const hasHammereAlready = async () => {
-      const res = await hasHammeredBlog(blog.id);
-      console.log(res)
-      setHasLiked(res);
-    };
-    hasHammereAlready();
-  }, [likeStatus]);
   const handleLike = async () => {
-    const { message, success } = await likeBlog({
-      pathName: pathName,
-      postId: blog.id,
-    });
-    setLikeStatus(message);
+    const newHasLiked = !hasliked;
+    const prevCount = hammerCount;
+
+    // Optimistic update
+    setHasLiked(newHasLiked);
+    setHammerCount(newHasLiked ? prevCount + 1 : prevCount - 1);
+
+    try {
+      const { message, success } = await likeBlog({
+        pathName: pathName,
+        postId: blog.id,
+      });
+
+      if (success) {
+        setLikeStatus(message);
+      } else {
+        setHasLiked(!newHasLiked);
+        setHammerCount(prevCount);
+        setLikeStatus("Failed to update. Please try again.");
+      }
+    } catch (error) {
+      setHasLiked(!newHasLiked);
+      setHammerCount(prevCount);
+      setLikeStatus("An error occurred. Please try again.");
+    }
+
     setTimeout(() => {
       setLikeStatus("");
-    }, 5000);
+    }, 3000);
   };
 
   return (
@@ -66,7 +80,7 @@ const Blog = ({ blog }: { blog: BlogFullType }) => {
       <EditorContent editor={editor} />
       <footer>
         <div className="flex flex-col items-center justify-center gap-2">
-          <div className="flex w-fit items-center justify-center rounded-full border-4 p-2 transition-all duration-500">
+          <div className="flex w-fit items-center justify-center rounded-full border-4 p-2 shadow shadow-primary transition-all duration-500">
             <Button
               variant={"secondary"}
               size={"icon"}
@@ -74,8 +88,8 @@ const Blog = ({ blog }: { blog: BlogFullType }) => {
               // className="group h-14 w-14 rounded-full border-2 border-dashed border-secondary bg-transparent p-0 ring-rose-200 transition-transform duration-500 hover:scale-125 hover:border-0 active:ring-2"
               className={
                 hasliked
-                  ? "group h-14 w-14 rounded-full   border-dashed border-secondary  p-0 ring-rose-200 transition-transform duration-500 scale-125 border-0 active:ring-2"
-                  : "group h-14 w-14 rounded-full border-2 border-dashed border-secondary bg-transparent p-0 ring-rose-200 transition-transform duration-500 hover:scale-125 hover:border-0 active:ring-2"
+                  ? "group h-14 w-14 scale-125 rounded-full border-0 p-0 ring-rose-200 transition-all duration-500 hover:shadow hover:shadow-primary active:ring-2"
+                  : "group h-14 w-14 rounded-full border-2 border-dashed border-secondary bg-transparent p-0 ring-rose-200 transition-transform duration-500 hover:scale-125 hover:border-0 hover:shadow hover:shadow-primary active:ring-2"
               }
             >
               <HammerIcon
@@ -88,7 +102,7 @@ const Blog = ({ blog }: { blog: BlogFullType }) => {
               />
             </Button>
           </div>
-          <p className="text-primary">{blog.hammerCount}</p>
+          <p className="text-primary">{hammerCount}</p>
 
           <p className="mt-2 text-primary">{likeStatus}</p>
         </div>

@@ -62,9 +62,17 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        "fade-in" : {
-          from: {opacity: "0"},
-          to: {opacity:"1"}
+        rotate: {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
+        "rotate-reverse": {
+          from: { transform: "rotate(360deg)" },
+          to: { transform: "rotate(0deg)" },
+        },
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
         },
         "fade-out": {
           from: { opacity: "1" },
@@ -84,6 +92,9 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 1.5s ease-in-out ",
         "fade-out": "fade-out 1.5s ease-in-out",
+        "rotate": "rotate 50s linear  infinite ",
+        "rotate-reverse": "rotate-reverse 15s linear  infinite ",
+        "rotate-fast": "rotate 15s linear  infinite ",
       },
     },
   },
