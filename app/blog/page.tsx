@@ -13,7 +13,9 @@ const page = async ({
   params: { slug: string };
   searchParams: { [key: string]: string | string[] | undefined };
 }) => {
-  const title = searchParams.title as string;
+  const encodedTitle = searchParams.title as string;
+  const title = decodeURIComponent(encodedTitle);
+  // console.log("search Params: ", searchParams);
   // console.log(blog);
   return (
     <div className="px-6 pb-8 pt-24 lg:mx-auto lg:w-[800px] lg:px-0">
@@ -28,7 +30,10 @@ const page = async ({
 export default page;
 
 const BlogContent = async ({ title }: { title: string }) => {
+  const titleToPush = title.replaceAll("-", "")
+  // console.log(titleToPush)
   const blog = await getBlogByTitle(title.replaceAll("-", " "));
+  // console.log(blog)
   const hasLiked = await hasHammeredBlog(blog.post?.id as string);
   return blog.success === true ? (
     <>

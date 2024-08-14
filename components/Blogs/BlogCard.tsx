@@ -13,7 +13,9 @@ const BlogCard = ({ blog }: {blog:BlogFullType}) => {
     return input.replace(/<[^>]*>/g, "");
   }
   const CleanContent = removeHtmlTags(blog.content.substring(0, 50));
-  const titleParams = blog.title.replaceAll(" ", "-");
+  // const titleParams = blog.title.replaceAll(" ", "-");
+  const titleParams = encodeURIComponent(blog.title.replaceAll(" ", "-"));
+  // console.log(titleParams)
   return (
     <Link
       href={`/blog?title=${titleParams}`}

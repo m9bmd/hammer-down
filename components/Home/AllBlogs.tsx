@@ -4,7 +4,7 @@ import { getAllBlogs } from "@/actions/blog/getBlog";
 import { BlogFullType } from "@/types/BlogFullType";
 const AllBlogs = async () => {
   const res = await getAllBlogs();
-  console.log(res);
+  // console.log(res);
   return (
     <div className="flex flex-col gap-6 px-1">
       {res.success === true && res.posts ? (
