@@ -12,6 +12,7 @@ const Footer = () => {
         width={300}
         height={300}
         alt="dog chilling with drink"
+        title="character design by Antonay Studio"
         className=""
       />
       <p className="text-xs text-primary">for my lady</p>

@@ -23,7 +23,7 @@ const AuthCardWrapper = ({
   showSocial,
 }: AuthCardWrapperProps) => {
   return (
-    <Card className="lg:w-[444px] bg-background border-primary/60">
+    <Card className="lg:w-[444px] w-96  bg-background border-primary/60">
       <CardHeader className="text-center">
         <h2 className="text-2xl font-bold text-primary">{headerTitle}</h2>
         <p className="text-sm text-muted-foreground lowercase">{headerLabel}</p>

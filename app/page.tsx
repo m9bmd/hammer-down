@@ -40,8 +40,9 @@ const page = () => {
               }
               width={300}
               height={300}
-              alt="chill sunflower resting on ground"
-              className=""
+              title="character design from Anton Studios"
+              alt="chill sunflower resting on ground by Anton Studios"
+              className="z-40"
             />
           </div>
         </div>

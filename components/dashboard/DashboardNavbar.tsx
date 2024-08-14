@@ -4,11 +4,11 @@ import React from "react";
 
 const DashboardNavbar = () => {
   const links = [
-    {
-      address: "/dashboard",
-      icon: <HomeIcon className="text-primary" />,
-      name: "Home",
-    },
+    // {
+    //   address: "/dashboard",
+    //   icon: <HomeIcon className="text-primary" />,
+    //   name: "Home",
+    // },
     {
       address: "/dashboard/posts",
       icon: <NotebookTextIcon className="text-primary" />,

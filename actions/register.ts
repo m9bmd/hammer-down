@@ -31,12 +31,12 @@ export const register = async (data: RegisterInputType) => {
         password: hashedPassword,
       },
     });
-    const verificationToken = await generateVerificationToken(email);
-    await sendVerificationEmail(
-      verificationToken.email,
-      verificationToken.token
-    );
-    return { success: "confirmation email sent." };
+    // const verificationToken = await generateVerificationToken(email);
+    // await sendVerificationEmail(
+    //   verificationToken.email,
+    //   verificationToken.token
+    // );
+    return { success: "Account created successfully" };
     // navigate("/")
   } catch (error) {
     // console.log(error);

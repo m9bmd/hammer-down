@@ -21,6 +21,7 @@ import {
   RegisterSchema,
 } from "@/schemas/auth/registerSchema";
 import { register } from "@/actions/register";
+import { justSendEmail } from "@/lib/mail";
 
 const RegisterForm = () => {
   const [isPending, startTransition] = useTransition();
@@ -56,7 +57,7 @@ const RegisterForm = () => {
       showSocial
     >
       <Form {...form}>
-        <form className="space-y-8" onSubmit={form.handleSubmit(onSubmit)}>
+        <form className="space-y-8 w-full" onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
             control={form.control}
             name="name"
@@ -110,6 +111,7 @@ const RegisterForm = () => {
           />
           <FormError message={error} />
           <FormSuccess message={success} />
+
           <Button
             type="submit"
             disabled={isPending}

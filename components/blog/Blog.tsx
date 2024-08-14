@@ -89,7 +89,7 @@ const Blog = ({ blog,hasLiked }: { blog: BlogFullType,hasLiked:boolean }) => {
               className={
                 hasliked
                   ? "group h-14 w-14 scale-125 rounded-full border-0 p-0 ring-rose-200 transition-all duration-500  active:ring-2"
-                  : "group h-14 w-14 rounded-full border-2 border-dashed border-secondary bg-transparent p-0 ring-rose-200 transition-transform duration-500 hover:scale-125 hover:border-0 active:shadow active:shadow-primary active:ring-2"
+                  : "group h-14 w-14 rounded-full hover:bg-transparent md:hover:bg-accent border-2 border-dashed border-secondary bg-transparent p-0 ring-rose-200 transition-transform duration-500 md:hover:scale-125 md:hover:border-0 active:shadow active:shadow-primary active:ring-2"
               }
             >
               <HammerIcon
@@ -97,7 +97,7 @@ const Blog = ({ blog,hasLiked }: { blog: BlogFullType,hasLiked:boolean }) => {
                 className={
                   hasliked
                     ? "rotate-45 scale-125 stroke-1 transition-all duration-300"
-                    : "stroke-1 transition-all duration-300 group-hover:rotate-45 group-hover:scale-125"
+                    : "stroke-1 transition-all duration-300 md:group-hover:rotate-45 md:group-hover:scale-125"
                 }
               />
             </Button>

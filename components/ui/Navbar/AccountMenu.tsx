@@ -38,12 +38,14 @@ const AccountMenu = async () => {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <User className="mr-2 h-4 w-4 text-primary" />
-            <span className="text-primary">{session?.user.name}</span>
+          <DropdownMenuItem asChild>
+            <Link href={"/dashboard/profile"} className="flex items-center">
+              <User className="mr-2 h-4 w-4 text-primary" />
+              <span className="text-primary">{session?.user.name}</span>
+            </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Link href={"/dashboard"} className="flex items-center">
+          <DropdownMenuItem asChild>
+            <Link href={"/dashboard/posts"} className="flex items-center">
               <NotebookTextIcon className="mr-2 h-4 w-4 text-primary" />
               <span className="text-primary">Dashboard</span>
             </Link>

@@ -20,7 +20,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (account?.provider !== "credentials") return true;
       const existingUser = await getUserById(user.id as string);
       // ? prevent signin without email verification
-      if (!existingUser?.emailVerified) return false;
+      // if (!existingUser?.emailVerified) return false;
       // TODO: add 2fa
       return true;
     },
