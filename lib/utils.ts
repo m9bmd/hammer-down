@@ -15,3 +15,8 @@ export function showDate(date: string) {
       : originalDate.format("DD-MM-YYYY");
   return dateToDisplay;
 }
+export function showDateNative(createdAt:Date, updatedAt:Date) {
+  const postDate = createdAt.toDateString()
+  const postTime = createdAt.toTimeString()
+  return `date: ${postDate}, time: ${postTime}`
+}

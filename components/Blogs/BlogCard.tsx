@@ -2,13 +2,12 @@ import { BlogType } from "@/schemas/blog/BlogSchema";
 import React from "react";
 import { Button } from "../ui/button";
 import moment from "moment";
-import { showDate } from "@/lib/utils";
+import { showDate, showDateNative } from "@/lib/utils";
 import { ArrowRight, HammerIcon } from "lucide-react";
 import { BlogFullType } from "@/types/BlogFullType";
 import Link from "next/link";
 
-
-const BlogCard = ({ blog }: {blog:BlogFullType}) => {
+const BlogCard = ({ blog }: { blog: BlogFullType }) => {
   function removeHtmlTags(input: string) {
     return input.replace(/<[^>]*>/g, "");
   }
@@ -16,6 +15,8 @@ const BlogCard = ({ blog }: {blog:BlogFullType}) => {
   // const titleParams = blog.title.replaceAll(" ", "-");
   const titleParams = encodeURIComponent(blog.title.replaceAll(" ", "-"));
   // console.log(titleParams)
+  // console.log("Title: ", blog.title)
+  // console.log("createdAt", blog.createdAt.toISOString(), "updatedAt", blog.updatedAt.toISOString())
   return (
     <Link
       href={`/blog?title=${titleParams}`}
@@ -29,7 +30,6 @@ const BlogCard = ({ blog }: {blog:BlogFullType}) => {
             className="border-b border-r border-secondary px-2 text-primary"
             // className="flex h-8 cursor-pointer items-center rounded-md border-2 border-b-4 border-r-4 border-b-secondary border-r-secondary px-2 text-sm text-primary transition-all duration-75 hover:border-b hover:border-r"
           >
-            
             {category.name}
           </p>
         ))}
@@ -41,11 +41,12 @@ const BlogCard = ({ blog }: {blog:BlogFullType}) => {
             {blog.author.name}
           </p>
           <p className="text-sm text-muted-foreground">
-            {blog.createdAt !== blog.updatedAt ? (
+            {showDate(blog.updatedAt.toISOString())}
+            {/* {blog.createdAt.toISOString !== blog.updatedAt.toISOString ? (
               <span>updated: {showDate(blog.updatedAt.toISOString())}</span>
             ) : (
               showDate(blog.createdAt.toISOString())
-            )}
+            )} */}
           </p>
         </div>
         <p className="flex items-center justify-center rounded-full border-2 border-dashed border-secondary px-6 transition-all duration-300 group-hover:border-solid group-hover:px-2">
