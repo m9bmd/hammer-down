@@ -7,10 +7,8 @@ import { ArrowRight, HammerIcon } from "lucide-react";
 import { BlogFullType } from "@/types/BlogFullType";
 import Link from "next/link";
 
-type BlogCardProps = {
-  blog: BlogFullType;
-};
-const BlogCard = ({ blog }: BlogCardProps) => {
+
+const BlogCard = ({ blog }: {blog:BlogFullType}) => {
   function removeHtmlTags(input: string) {
     return input.replace(/<[^>]*>/g, "");
   }

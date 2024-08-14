@@ -62,7 +62,17 @@ export const getAllBlogs = async () => {
         author: { select: { id: true, name: true } },
         categories: true,
         hammers: true,
-        comments: true,
+        comments: {
+          include: {
+            User: {
+              select: {
+                id:true,
+                name:true,
+                image:true
+              }
+            },
+          },
+        },
       },
     });
     return { success: true, message: "Successfully fetched all posts", posts };
