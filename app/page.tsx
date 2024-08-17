@@ -55,7 +55,7 @@ const page = () => {
                 className: "w-full",
               })}
             >
-              Let's go
+              Let&apos;s go
             </Link>
           </div>
         </div>
