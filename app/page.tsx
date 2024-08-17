@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 const page = () => {
   return (
-    <div className="px-10">
+    <div className="px-10 flex flex-col justify-between h-[calc(100vh-64px)]">
       <div className="flex flex-col items-center space-y-4 pt-28">
         <div className="relative flex h-80 w-80">
           <div className="absolute left-0 top-0 h-full w-full animate-rotate rounded-full border-2 border-dashed border-primary"></div>
