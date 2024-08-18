@@ -14,12 +14,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { LoginInputType, LoginSchema } from "@/schemas/auth/loginSchema";
+
 import FormError from "./FormError";
 import FormSuccess from "./FormSuccess";
-import { login } from "@/actions/login";
 import FormWarning from "./FormWarning";
-import { navigate } from "@/lib/navigate";
+
 import { ResetSchema, ResetSchemaType } from "@/schemas/auth/reset";
 import { reset } from "@/actions/reset";
 

@@ -1,10 +1,18 @@
-import VerificationForm from '@/components/auth/VerifcationForm'
-import React from 'react'
+"use client"
 
-const VerifyEmailpage = () => {
+import React, { Suspense } from 'react'
+import dynamic from 'next/dynamic'
+
+const DynamicVerificationForm = dynamic(() => import('@/components/auth/VerifcationForm'), {
+  ssr: false,
+})
+
+const VerifyEmailPage = () => {
   return (
-    <VerificationForm/>
+    <Suspense fallback={<div>Loading...</div>}>
+      <DynamicVerificationForm />
+    </Suspense>
   )
 }
 
-export default VerifyEmailpage
+export default VerifyEmailPage

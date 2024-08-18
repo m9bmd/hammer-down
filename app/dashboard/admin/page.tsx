@@ -1,9 +1,9 @@
 import { getAllBlogsCount } from "@/actions/blog/getBlog";
 import { getUserCount } from "@/actions/user/getUserCount";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { getCurrentUserRole } from "@/lib/auth";
+import {  buttonVariants } from "@/components/ui/button";
+import { getCurrentUserRole } from "@/lib/user_utils";
 
-import { ArrowDown, ArrowRight } from "lucide-react";
+import {  ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";

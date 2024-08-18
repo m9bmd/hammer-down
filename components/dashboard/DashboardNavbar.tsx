@@ -1,4 +1,4 @@
-import { getCurrentUserRole } from "@/lib/auth";
+import { getCurrentUserRole } from "@/lib/user_utils";
 import { HomeIcon, NotebookTextIcon, UserCog, UserIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";

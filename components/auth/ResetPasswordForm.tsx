@@ -1,4 +1,3 @@
-"use client";
 import React, { startTransition, useState, useTransition } from "react";
 import AuthCardWrapper from "./AuthCardWrapper";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -7,21 +6,17 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { LoginInputType, LoginSchema } from "@/schemas/auth/loginSchema";
 import FormError from "./FormError";
 import FormSuccess from "./FormSuccess";
-import { login } from "@/actions/login";
 import FormWarning from "./FormWarning";
-import { navigate } from "@/lib/navigate";
 import { ResetPasswordSchema, ResetPasswordType } from "@/schemas/auth/reset";
-import { reset, resetPassword } from "@/actions/reset";
+import {  resetPassword } from "@/actions/reset";
 import { useSearchParams } from "next/navigation";
 
 const ResetPasswordForm = () => {
@@ -30,6 +25,7 @@ const ResetPasswordForm = () => {
   const [success, setSuccess] = useState<string>("");
   const [warning, setWarning] = useState<string>("");
   const searchParams = useSearchParams();
+
   const token = searchParams.get("token");
   const form = useForm<ResetPasswordType>({
     resolver: zodResolver(ResetPasswordSchema),

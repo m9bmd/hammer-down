@@ -1,5 +1,4 @@
-import { getCurrentUserRole } from "@/lib/auth";
-import { Divide } from "lucide-react";
+import { getCurrentUserRole } from "@/lib/user_utils";
 import { redirect } from "next/navigation";
 
 export default async function AdminLayout({

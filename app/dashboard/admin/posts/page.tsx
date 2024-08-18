@@ -1,6 +1,6 @@
 import { getAllBlogs } from "@/actions/blog/getBlog";
 import PostList from "@/components/dashboard/posts/PostList";
-import { getCurrentUserRole } from "@/lib/auth";
+import { getCurrentUserRole } from "@/lib/user_utils";
 import React, { Suspense, } from "react";
 
 const page = async () => {

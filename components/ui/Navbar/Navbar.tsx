@@ -1,11 +1,9 @@
-import React, { use } from "react";
-import { Button, buttonVariants } from "../button";
+import React from "react";
+import {  buttonVariants } from "../button";
 import Link from "next/link";
-import { auth, signOut } from "@/auth";
-import { apiAuthPrefix } from "@/routes/routes";
-import SignoutButton from "./SignoutButton";
+
 import AccountMenu from "./AccountMenu";
-import { getCurrentUser } from "@/lib/auth";
+import { getCurrentUser } from "@/lib/user_utils";
 
 const Navbar = async () => {
   const user = await getCurrentUser();
@@ -23,7 +21,6 @@ const Navbar = async () => {
             >
               create post
             </Link>
-            {/* <SignoutButton /> */}
             <AccountMenu />
           </div>
         ) : (

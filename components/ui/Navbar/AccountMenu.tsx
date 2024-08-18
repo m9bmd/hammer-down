@@ -6,12 +6,9 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
+
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
+
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -19,7 +16,7 @@ import { auth } from "@/auth";
 import SignoutButton from "./SignoutButton";
 import { NotebookTextIcon, User } from "lucide-react";
 import Link from "next/link";
-import { getCurrentUser } from "@/lib/auth";
+import { getCurrentUser } from "@/lib/user_utils";
 const AccountMenu = async () => {
   const user = await getCurrentUser();
   // console.log(session);
