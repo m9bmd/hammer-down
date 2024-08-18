@@ -1,3 +1,4 @@
+"use client"
 import React, { startTransition, useState, useTransition } from "react";
 import AuthCardWrapper from "./AuthCardWrapper";
 import { zodResolver } from "@hookform/resolvers/zod";

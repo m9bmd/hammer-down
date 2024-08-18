@@ -1,16 +1,11 @@
-"use client"
-
 import React, { Suspense } from 'react'
-import dynamic from 'next/dynamic'
 
-const DynamicResetPasswordForm = dynamic(() => import('@/components/auth/ResetPasswordForm'), {
-  ssr: false,
-})
+import ResetPasswordForm from '@/components/auth/ResetPasswordForm'
 
 const ResetPasswordPage = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <DynamicResetPasswordForm />
+      <ResetPasswordForm />
     </Suspense>
   )
 }
