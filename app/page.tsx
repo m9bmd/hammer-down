@@ -44,28 +44,29 @@ const page = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center gap-4">
-            <h1 className="text-center  text-primary text-sm md:text-base lg:text-lg">
-              {/* Sup Homie? <br /> Long time no see! */}
-              Sup homie!<br/>
-              Hammer down your Vibe <br />
-              I&apos;ll catch it
+          <div className="flex flex-col items-center justify-center gap-6">
+            <h1 className="text-center text-primary">
+              Sup Homie? <br /> Long time no see!
             </h1>
             <Link
               href={"/blogs"}
               className={buttonVariants({
                 variant: "default",
-                className: "",
+                className: "w-full",
               })}
             >
-              Let&apos;s go
+              Let's go
             </Link>
           </div>
         </div>
         <div className="absolute bottom-0 w-full pb-6 text-center">
-          <p className="text-xs text-muted-foreground">for my baddie, no cap✌️</p>
+          <p className="text-xs text-muted-foreground">
+            for my favorite person ✌️
+          </p>
         </div>
       </div>
+      {/* <RecentBlogs /> */}
+      <Footer />
     </div>
   );
 };
