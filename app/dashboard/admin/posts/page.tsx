@@ -1,8 +1,7 @@
 import { getAllBlogs } from "@/actions/blog/getBlog";
 import PostList from "@/components/dashboard/posts/PostList";
 import { getCurrentUserRole } from "@/lib/auth";
-import { redirect } from "next/navigation";
-import React, { Suspense, use } from "react";
+import React, { Suspense, } from "react";
 
 const page = async () => {
   const userRole = await getCurrentUserRole()
