@@ -19,14 +19,15 @@ import { auth } from "@/auth";
 import SignoutButton from "./SignoutButton";
 import { NotebookTextIcon, User } from "lucide-react";
 import Link from "next/link";
+import { getCurrentUser } from "@/lib/auth";
 const AccountMenu = async () => {
-  const session = await auth();
+  const user = await getCurrentUser();
   // console.log(session);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
         <Avatar>
-          <AvatarImage src={session?.user.image || ""} alt="user profile" />
+          <AvatarImage src={user?.image || ""} alt="user profile" />
           <AvatarFallback className="bg-primary/15 font-bold text-primary">
             {"^_^"}
           </AvatarFallback>
@@ -41,7 +42,9 @@ const AccountMenu = async () => {
           <DropdownMenuItem asChild>
             <Link href={"/dashboard/profile"} className="flex items-center">
               <User className="mr-2 h-4 w-4 text-primary" />
-              <span className="text-primary">{session?.user.name}</span>
+              <span className="text-primary">
+                {user?.name} {user?.role === "ADMIN" && "(ADMIN)"}
+              </span>
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>

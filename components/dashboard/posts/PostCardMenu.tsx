@@ -7,10 +7,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { EllipsisVerticalIcon } from "lucide-react";
+import { EllipsisVerticalIcon, EyeIcon } from "lucide-react";
 import EditButton from "@/components/blog/edit/EditButton";
 import DeleteButton from "@/components/blog/DeleteButton";
-const PostCardMenu = ({ id }: { id: string }) => {
+const PostCardMenu = ({ id, isAdmin }: { id: string; isAdmin: Boolean }) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild className="">
@@ -21,10 +21,10 @@ const PostCardMenu = ({ id }: { id: string }) => {
       <DropdownMenuContent className="bg-background">
         <DropdownMenuGroup className="space-y-2 bg-background">
           <DropdownMenuItem className="hover:bg-blue-50" asChild>
-            <EditButton id={id} />
+            {!isAdmin && <EditButton id={id} />}
           </DropdownMenuItem>
           <DropdownMenuItem className="hover:bg-red-50" asChild>
-            <DeleteButton id={id}/>
+            <DeleteButton id={id} />
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>

@@ -7,11 +7,12 @@ type PostWithCategories = Post & {
 
 type PostListProps = {
   posts: PostWithCategories[] | undefined;
+  isAdmin?: Boolean 
 };
-const PostList = ({ posts }: PostListProps) => {
+const PostList = ({ posts,isAdmin }: PostListProps) => {
   return (
     <div className="space-y-4 pb-24">
-      {posts?.map((post) => <PostCard key={post.id} post={post} showMenu/>)}
+      {posts?.map((post) => <PostCard key={post.id} post={post} isAdmin={isAdmin}/>)}
     </div>
   );
 };
