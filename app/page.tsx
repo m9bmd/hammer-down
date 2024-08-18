@@ -58,7 +58,7 @@ const page = () => {
                 className: "",
               })}
             >
-              Let&apos;s go
+              Let's go
             </Link>
           </div>
         </div>
