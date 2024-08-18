@@ -27,17 +27,17 @@ export const getBlogByTitle = async (title: string) => {
     const post = await db.post.findUnique({
       where: { title: title },
       include: {
-        author: { select: { id: true, name: true,image:true } },
+        author: { select: { id: true, name: true, image: true } },
         categories: true,
         hammers: true,
         comments: {
           include: {
             User: {
               select: {
-                id:true,
-                name:true,
-                image:true
-              }
+                id: true,
+                name: true,
+                image: true,
+              },
             },
           },
         },
@@ -66,10 +66,10 @@ export const getAllBlogs = async () => {
           include: {
             User: {
               select: {
-                id:true,
-                name:true,
-                image:true
-              }
+                id: true,
+                name: true,
+                image: true,
+              },
             },
           },
         },
@@ -78,5 +78,13 @@ export const getAllBlogs = async () => {
     return { success: true, message: "Successfully fetched all posts", posts };
   } catch (error) {
     return { success: false, message: "Something went wrong ⊙﹏⊙∥" };
+  }
+};
+export const getAllBlogsCount = async () => {
+  try {
+    const postsLength = await db.post.count()
+    return postsLength;
+  } catch (error) {
+    return null;
   }
 };

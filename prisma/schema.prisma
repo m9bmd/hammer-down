@@ -88,7 +88,7 @@ model Post {
   authorId    String     @db.ObjectId
   categories  Category[] @relation(fields: [categoryIds], references: [id])
   categoryIds String[]   @db.ObjectId
-  comments    Comment[]
+  comments    Comment[] 
   hammers     Hammer[]
 
   @@map("posts")
@@ -112,9 +112,9 @@ model Comment {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  Post   Post   @relation(fields: [postId], references: [id])
+  Post   Post   @relation(fields: [postId], references: [id],onDelete: Cascade)
   postId String @db.ObjectId
-  User   User   @relation(fields: [userId], references: [id])
+  User   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String @db.ObjectId
 
   @@map("comments")
@@ -123,9 +123,9 @@ model Comment {
 model Hammer {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   createdAt DateTime @default(now())
-  User      User     @relation(fields: [userId], references: [id])
+  User      User     @relation(fields: [userId], references: [id],onDelete: Cascade)
   userId    String   @db.ObjectId
-  Post      Post     @relation(fields: [postId], references: [id])
+  Post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
   postId    String   @db.ObjectId
 
   @@unique([userId, postId])

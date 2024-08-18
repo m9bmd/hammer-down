@@ -11,17 +11,17 @@ type PostWithCategories = Post & {
 
 type PostCardProps = {
   post: PostWithCategories;
-  showMenu: boolean;
+  isAdmin?: Boolean
 };
 
-const PostCard = ({ post, showMenu }: PostCardProps) => {
+const PostCard = ({ post, isAdmin=false }: PostCardProps) => {
   const cleanHTML = DOMPurify.sanitize(post.content.substring(0, 50));
   return (
-    <article className=" space-y-4 rounded-md border border-secondary p-4 ">
+    <article className="space-y-4 rounded-md border border-secondary p-4">
       <div className="flex items-baseline justify-between">
         <h2 className="text-lg text-primary">{post.title}</h2>
         {/* <EllipsisVerticalIcon className="h-4 w-5 text-muted-foreground" /> */}
-        {showMenu ? <PostCardMenu id={post.id} /> : null}
+         <PostCardMenu id={post.id} isAdmin={isAdmin}/>
       </div>
 
       <div className="flex h-5 items-center gap-2">
@@ -44,14 +44,7 @@ const PostCard = ({ post, showMenu }: PostCardProps) => {
       </div>
       <footer className="">
         <p className="text-xs text-muted-foreground">
-          {post.createdAt.getTime() === post.updatedAt.getTime() ? (
-            showDate(post.createdAt.toISOString())
-          ) : (
-            <>
-              <span>Updated: </span>
-              {showDate(post.updatedAt.toISOString())}
-            </>
-          )}
+          last updated: {showDate(post.updatedAt.toISOString())}
         </p>
       </footer>
     </article>

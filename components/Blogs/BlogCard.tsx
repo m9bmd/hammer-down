@@ -20,7 +20,7 @@ const BlogCard = ({ blog }: { blog: BlogFullType }) => {
   return (
     <Link
       href={`/blog?title=${titleParams}`}
-      className="group space-y-4 rounded-md border border-secondary p-4"
+      className="group space-y-4 rounded-md border border-secondary p-4 "
     >
       <h1 className="text-xl text-primary">{blog.title}</h1>
       <div className="flex gap-4">
@@ -41,7 +41,7 @@ const BlogCard = ({ blog }: { blog: BlogFullType }) => {
             {blog.author.name}
           </p>
           <p className="text-sm text-muted-foreground">
-            {showDate(blog.updatedAt.toISOString())}
+            {showDate(blog.createdAt.toISOString())}
             {/* {blog.createdAt.toISOString !== blog.updatedAt.toISOString ? (
               <span>updated: {showDate(blog.updatedAt.toISOString())}</span>
             ) : (
