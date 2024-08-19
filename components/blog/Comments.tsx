@@ -24,7 +24,7 @@ const Comments = ({
   comments: comment[];
   blogId: string;
 }) => {
-  console.log(comments)
+  // console.log(comments)
   const pathName = usePathname();
   const form = useForm<CommentType>({
     resolver: zodResolver(CommentSchema),

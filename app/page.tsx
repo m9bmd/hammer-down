@@ -1,4 +1,3 @@
-import Footer from "@/components/Home/ChillDog";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -6,7 +5,6 @@ import { buttonVariants } from "@/components/ui/button";
 import {
   CatIcon,
   HandMetalIcon,
-  LollipopIcon,
   PopcornIcon,
 } from "lucide-react";
 const page = () => {

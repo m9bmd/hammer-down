@@ -58,6 +58,9 @@ export const getBlogByTitle = async (title: string) => {
 export const getAllBlogs = async () => {
   try {
     const posts = await db.post.findMany({
+      orderBy: {
+        createdAt: "desc"
+      },
       include: {
         author: { select: { id: true, name: true } },
         categories: true,
@@ -77,6 +80,7 @@ export const getAllBlogs = async () => {
     });
     return { success: true, message: "Successfully fetched all posts", posts };
   } catch (error) {
+    console.log(error)
     return { success: false, message: "Something went wrong ⊙﹏⊙∥" };
   }
 };

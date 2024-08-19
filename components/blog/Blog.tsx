@@ -26,6 +26,7 @@ const Blog = ({ blog,hasLiked }: { blog: BlogFullType,hasLiked:boolean }) => {
     extensions: blogExtensions,
     content: blog.content,
     editable: false,
+    immediatelyRender:false
   });
 
   const handleLike = async () => {
