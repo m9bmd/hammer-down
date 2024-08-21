@@ -1,7 +1,6 @@
 "use server";
 
 import db from "@/lib/db";
-import { BlogFullType } from "@/types/BlogFullType";
 
 export const getBlog = async (id: string) => {
   try {
@@ -77,7 +76,11 @@ export const getAllBlogs = async () => {
           },
         },
       },
-    });
+      cacheStrategy: {
+        ttl:60,
+        swr:10,
+      }
+    })
     return { success: true, message: "Successfully fetched all posts", posts };
   } catch (error) {
     console.log(error)

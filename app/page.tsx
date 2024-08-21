@@ -31,6 +31,7 @@ const page = () => {
             <div className="flex h-full w-full items-center justify-center">
               <Image
                 priority={true}
+                loading="eager"
                 src={
                   "https://res.cloudinary.com/duseu6urj/image/upload/f_auto,q_auto/v1/hammer%20down/nr42nnxkygmzjun3nffu"
                 }

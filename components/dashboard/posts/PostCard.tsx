@@ -3,7 +3,7 @@ import React from "react";
 import { EllipsisVerticalIcon } from "lucide-react";
 import { type Post, type Category } from "@prisma/client";
 import DOMPurify from "isomorphic-dompurify";
-import { showDate } from "@/lib/utils";
+import {  showDateNative } from "@/lib/utils";
 import PostCardMenu from "./PostCardMenu";
 type PostWithCategories = Post & {
   categories: Category[];
@@ -44,7 +44,7 @@ const PostCard = ({ post, isAdmin=false }: PostCardProps) => {
       </div>
       <footer className="">
         <p className="text-xs text-muted-foreground">
-          last updated: {showDate(post.updatedAt.toISOString())}
+          last updated: {showDateNative(post.updatedAt)}
         </p>
       </footer>
     </article>

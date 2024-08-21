@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { getUserPosts } from "@/actions/user/getUserPosts";
-import PostCard from "@/components/dashboard/posts/PostCard";
+
 import React from "react";
 import PostList from "@/components/dashboard/posts/PostList";
 
