@@ -6,6 +6,8 @@ It allows users to to share their posts, responds to other's post & give a "hamm
 - [Features](#features)
 - [How to Use](#how-to-use)
 - [Installation](#installation)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
 
 ## Features
 - **User authentication**: Sign up or login in using Auth.js, with the option to authenticate via Google or Github or create a new Account that sends verification. Upon creation of account with credentials verification email is sent to the user to confirm identity.
