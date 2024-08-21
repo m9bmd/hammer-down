@@ -11,7 +11,8 @@ Hammer Down is an interactive platform where users can share their thoughts and 
 
 ## Features
 - **User Authentication**: Sign up or log in using Auth.js, with the option to authenticate via Google or GitHub, or create a new account that requires email verification. A verification email will be sent to confirm the user's identity upon account creation.
-- **Add Posts**: Create new posts with a rich text editor powered by TipTap.
+- **Admin**: Admins have the ability to delete posts and view statistics, including the total number of posts and users on the website.
+- **Add Posts**: Create new posts with a rich text editor powered by TipTap,with a  preview button to review content before posting.
 - **Update Posts**: Edit existing posts to keep them relevant.
 - **Hammer Posts**: Allows users to "hammer down" posts made by others.
 - **Comment on Posts**: Users can post comments on different posts.
