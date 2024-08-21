@@ -1,6 +1,6 @@
 # Hammer Down
-this is an interactive platform where users can share thoughts & feelings & engage in discussion.<br/>
-It allows users to to share their posts, responds to other's post & give a "hammer" - a unique way to show agreement or appreciation for a post.
+
+Hammer Down is an interactive platform where users can share their thoughts and feelings and engage in discussions. It allows users to share their posts, respond to others' posts, and give a "hammer"—a unique way to show agreement or appreciation for a post.
 
 ## Table of Contents
 - [Features](#features)
@@ -10,23 +10,22 @@ It allows users to to share their posts, responds to other's post & give a "hamm
 - [Technologies Used](#technologies-used)
 
 ## Features
-- **User authentication**: Sign up or login in using Auth.js, with the option to authenticate via Google or Github or create a new Account that sends verification. Upon creation of account with credentials verification email is sent to the user to confirm identity.
-- **Add Posts**: Create New Posts with a rich text editor powered by TipTap
-- **Update Posts**: Edit user's exisiting Posts to keep them relevant.
-- **Hammer Posts**: let;s user hammer down the post posted by other users
-- **Comment on Posts**: let's user post comments on different posts.
-- **Search Posts**: let user search posts based on title, category or author.
-- **Delete Posts**: Delete exisitng Posts that are not relevant.
-- **Secure Access**: Posts are securely stored in a mongodb database, accessed via Prisma ORM & for speed Prisma Accelerate
-- **Modern UI***: Built with Shadcn UI components & designed in clean & modern user interface
+- **User Authentication**: Sign up or log in using Auth.js, with the option to authenticate via Google or GitHub, or create a new account that requires email verification. A verification email will be sent to confirm the user's identity upon account creation.
+- **Add Posts**: Create new posts with a rich text editor powered by TipTap.
+- **Update Posts**: Edit existing posts to keep them relevant.
+- **Hammer Posts**: Allows users to "hammer down" posts made by others.
+- **Comment on Posts**: Users can post comments on different posts.
+- **Search Posts**: Search posts based on title, category, or author.
+- **Delete Posts**: Remove existing posts that are no longer relevant.
+- **Secure Access**: Posts are securely stored in a MongoDB database, accessed via Prisma ORM with Prisma Accelerate for speed.
+- **Modern UI**: Built with Shadcn UI components and designed with a clean, modern user interface.
 
 ## How to Use
-1. **Sign Up**: Create a new account or login via Google or Github.
-2. **Create a Post**: Once logged in, use the "Create Post" button to create post. You can use the rich text editor to format your Posts as you like.
-3. **Update Post**: Go to your Dashboard & click on Posts to find your posts & click on edit button on your desired post to edit it's content
-4. **Delete Post**: Go to your Dasboard & click on delete button on your desired posts
-5. **Search Posts**: Search Posts based on title, category or author.
-
+1. **Sign Up**: Create a new account or log in via Google or GitHub.
+2. **Create a Post**: Once logged in, use the "Create Post" button to create a post. You can format your post using the rich text editor.
+3. **Update Post**: Go to your Dashboard and click on "Posts" to find your posts. Click the edit button on your desired post to update its content.
+4. **Delete Post**: Go to your Dashboard and click the delete button on your desired post.
+5. **Search Posts**: Search posts based on title, category, or author.
  ## Installation
 
 To run the app locally, follow these steps:
