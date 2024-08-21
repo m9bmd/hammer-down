@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hammer Down
+this is an interactive platform where users can share thoughts & feelings & engage in discussion.<br/>
+It allows users to to share their posts, responds to other's post & give a "hammer" - a unique way to show agreement or appreciation for a post.
 
-## Getting Started
+## Table of Contents
+- [Features](#features)
+- [How to Use](#how-to-use)
+- [Installation](#installation)
 
-First, run the development server:
+## Features
+- **User authentication**: Sign up or login in using Auth.js, with the option to authenticate via Google or Github or create a new Account that sends verification. Upon creation of account with credentials verification email is sent to the user to confirm identity.
+- **Add Posts**: Create New Posts with a rich text editor powered by TipTap
+- **Update Posts**: Edit user's exisiting Posts to keep them relevant.
+- **Hammer Posts**: let;s user hammer down the post posted by other users
+- **Comment on Posts**: let's user post comments on different posts.
+- **Search Posts**: let user search posts based on title, category or author.
+- **Delete Posts**: Delete exisitng Posts that are not relevant.
+- **Secure Access**: Posts are securely stored in a mongodb database, accessed via Prisma ORM & for speed Prisma Accelerate
+- **Modern UI***: Built with Shadcn UI components & designed in clean & modern user interface
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## How to Use
+1. **Sign Up**: Create a new account or login via Google or Github.
+2. **Create a Post**: Once logged in, use the "Create Post" button to create post. You can use the rich text editor to format your Posts as you like.
+3. **Update Post**: Go to your Dashboard & click on Posts to find your posts & click on edit button on your desired post to edit it's content
+4. **Delete Post**: Go to your Dasboard & click on delete button on your desired posts
+5. **Search Posts**: Search Posts based on title, category or author.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ ## Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To run the app locally, follow these steps:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/m9bmd/hammer-down.git
+   ```
 
-## Learn More
+2. Navigate to the project directory:
+   ```sh
+   cd hammer-down
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Install dependencies using pnpm:
+   ```sh
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Start the development server:
+   ```sh
+   npm run dev
+   ```
+## Usage 
+Once the app is running locally, open your browser and navigate to http://localhost:3000. This will take you to the home page click the let's go button to read posts posted by other users and hammer it down or reply to their posts.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+ ## Technologies Used
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Next.js 14** App Router.
+- **Auth.js** for secure authentication, with support for Google and email-based sign-up.
+- **MongoDB**  for database management.
+- **Prisma ORM** for database access and querying.
+- **Prisma Accelerate**: for speed and caching.
+- **ShadCN UI** for a modern user interface.
+- **Tiptap** for a rich text editor experience.
+- **Tailwind CSS** for styling.
