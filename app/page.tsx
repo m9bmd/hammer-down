@@ -2,14 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { buttonVariants } from "@/components/ui/button";
-import {
-  CatIcon,
-  HandMetalIcon,
-  PopcornIcon,
-} from "lucide-react";
+import { CatIcon, HandMetalIcon, PopcornIcon } from "lucide-react";
 const page = () => {
   return (
-    <div>
+    <div className="bg-svg">
       <div className="relative h-[calc(100dvh-4rem)]">
         <div className="flex h-full w-full flex-col items-center space-y-2 pt-28">
           <div className="relative flex h-80 w-80 flex-col">
@@ -28,7 +24,7 @@ const page = () => {
                 {":P"}
               </p>
             </div>
-            <div className="flex h-full w-full items-center justify-center">
+            <div className="flex h-full w-full items-center justify-center bg-background">
               <Image
                 priority={true}
                 loading="eager"
@@ -44,9 +40,10 @@ const page = () => {
             </div>
           </div>
           <div className="flex flex-col items-center justify-center gap-4">
-            <h1 className="text-center  text-primary text-sm md:text-base lg:text-lg">
+            <h1 className="text-center text-sm text-primary md:text-base lg:text-lg">
               {/* Sup Homie? <br /> Long time no see! */}
-              Sup homie!<br/>
+              Sup homie!
+              <br />
               Hammer down your Vibe <br />
               I&apos;ll catch it
             </h1>
@@ -62,7 +59,9 @@ const page = () => {
           </div>
         </div>
         <div className="absolute bottom-0 w-full pb-6 text-center">
-          <p className="text-xs text-muted-foreground">for my baddie, no cap✌️</p>
+          <p className="text-xs text-muted-foreground">
+            for my baddie, no cap✌️
+          </p>
         </div>
       </div>
     </div>

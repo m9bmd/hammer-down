@@ -14,7 +14,6 @@ export const metadata: Metadata = {
   title: "hammer down",
   description: "hammer down your thoughts",
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{

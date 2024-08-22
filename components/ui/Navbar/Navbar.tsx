@@ -8,7 +8,7 @@ import { getCurrentUser } from "@/lib/user_utils";
 const Navbar = async () => {
   const user = await getCurrentUser();
   return (
-    <nav className="lg-px-6 flex h-16 items-center justify-between border-b px-2">
+    <nav className="lg-px-6 flex h-16 items-center justify-between border-b px-2 shadow-sm">
       <a href="/" className="text-2xl font-bold text-primary">
         Hammer Down
       </a>

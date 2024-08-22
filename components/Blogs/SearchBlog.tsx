@@ -3,7 +3,6 @@ import React, { useMemo, useState } from "react";
 import BlogCard from "../Blogs/BlogCard";
 import { BlogFullType } from "@/types/BlogFullType";
 import { Input } from "../ui/input";
-import { SearchIcon } from "lucide-react";
 
 const SearchBlog = ({ blogs }: { blogs: BlogFullType[] }) => {
   const [searchQ, setSearchQ] = useState<string>("");
