@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hammer Down
 
-## Getting Started
+Hammer Down is an interactive platform where users can share their thoughts and feelings and engage in discussions. It allows users to share their posts, respond to others' posts, and give a "hammer"—a unique way to show agreement or appreciation for a post.
 
-First, run the development server:
+## Table of Contents
+- [Features](#features)
+- [How to Use](#how-to-use)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
+- **User Authentication**: Sign up or log in using Auth.js, with the option to authenticate via Google or GitHub, or create a new account that requires email verification. A verification email will be sent to confirm the user's identity upon account creation.
+- **Admin**: Admin have the ability to delete posts and view statistics, including the total number of posts and users on the website.
+- **Add Posts**: Create new posts with a rich text editor powered by TipTap,with a  preview button to review content before posting.
+- **Update Posts**: Edit existing posts to keep them relevant.
+- **Hammer Posts**: Allows users to "hammer down" posts made by others.
+- **Comment on Posts**: Users can post comments on different posts.
+- **Search Posts**: Search posts based on title, category, or author.
+- **Delete Posts**: Remove existing posts that are no longer relevant.
+- **Secure Access**: Posts are securely stored in a MongoDB database, accessed via Prisma ORM with Prisma Accelerate for speed.
+- **Modern UI**: Built with Shadcn UI components and designed with a clean, modern user interface.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How to Use
+1. **Sign Up**: Create a new account or log in via Google or GitHub.
+2. **Create a Post**: Once logged in, use the "Create Post" button to create a post. You can format your post using the rich text editor.
+3. **Update Post**: Go to your Dashboard and click on "Posts" to find your posts. Click the edit button on your desired post to update its content.
+4. **Delete Post**: Go to your Dashboard and click the delete button on your desired post.
+5. **Search Posts**: Search posts based on title, category, or author.
+ ## Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To run the app locally, follow these steps:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/m9bmd/hammer-down.git
+   ```
 
-## Learn More
+2. Navigate to the project directory:
+   ```sh
+   cd hammer-down
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Install dependencies using pnpm:
+   ```sh
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Start the development server:
+   ```sh
+   npm run dev
+   ```
+## Usage 
+Once the app is running locally, open your browser and navigate to http://localhost:3000. This will take you to the home page click the let's go button to read posts posted by other users and hammer it down or reply to their posts.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+ ## Technologies Used
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Next.js 14** App Router.
+- **Auth.js** for secure authentication, with support for Google and email-based sign-up.
+- **MongoDB**  for database management.
+- **Prisma ORM** for database access and querying.
+- **Prisma Accelerate**: for speed and caching.
+- **ShadCN UI** for a modern user interface.
+- **Tiptap** for a rich text editor experience.
+- **Tailwind CSS** for styling.
