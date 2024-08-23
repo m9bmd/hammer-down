@@ -5,7 +5,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { CatIcon, HandMetalIcon, PopcornIcon } from "lucide-react";
 const page = () => {
   return (
-    <div className="bg-svg">
+    <div className="">
       <div className="relative h-[calc(100dvh-4rem)]">
         <div className="flex h-full w-full flex-col items-center space-y-2 pt-28">
           <div className="relative flex h-80 w-80 flex-col">

@@ -1,4 +1,3 @@
-@import "../components/styles/background.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

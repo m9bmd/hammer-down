@@ -12,8 +12,10 @@ export const getUserPosts = async () => {
       where: {
         authorId: session.user.id,
       },
-      include: {
-        categories: true,
+      select: {
+        id: true,
+        title: true,
+        createdAt:true
       },
     });
     if (!posts) {
@@ -22,5 +24,21 @@ export const getUserPosts = async () => {
     return { success: true, posts };
   } catch (error) {
     return { success: false, message: "error while getting your posts" };
+  }
+};
+export const getUserPostsCount = async () => {
+  const session = await auth();
+  if (!session || !session.user || !session.user.id) {
+    return null;
+  }
+  try {
+    const postsCount = await db.post.count({
+      where: {
+        authorId: session.user.id,
+      },
+    });
+    return postsCount;
+  } catch (error) {
+    return null;
   }
 };

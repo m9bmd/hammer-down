@@ -58,7 +58,7 @@ export const getAllBlogs = async () => {
   try {
     const posts = await db.post.findMany({
       orderBy: {
-        createdAt: "desc"
+        createdAt: "desc",
       },
       include: {
         author: { select: { id: true, name: true } },
@@ -77,20 +77,40 @@ export const getAllBlogs = async () => {
         },
       },
       cacheStrategy: {
-        ttl:60,
-        swr:10,
-      }
-    })
+        ttl: 60,
+        swr: 10,
+      },
+    });
     return { success: true, message: "Successfully fetched all posts", posts };
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return { success: false, message: "Something went wrong ⊙﹏⊙∥" };
   }
 };
 export const getAllBlogsCount = async () => {
   try {
-    const postsLength = await db.post.count()
+    const postsLength = await db.post.count();
     return postsLength;
+  } catch (error) {
+    return null;
+  }
+};
+export const getAllBlogsAdmin = async () => {
+  try {
+    const posts = await db.post.findMany({
+      select: {
+        id: true,
+        title: true,
+        createdAt: true,
+        author: {
+          select: { id: true, name: true },
+        },
+      },
+      orderBy: {
+        createdAt:"desc"
+      }
+    });
+    return posts;
   } catch (error) {
     return null;
   }
