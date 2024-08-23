@@ -10,7 +10,7 @@ const page = async () => {
   return (
     <div className="space-y-6 pb-24">
       <h1 className="text-2xl font-bold text-muted-foreground">All posts: {postsCount}</h1>
-      <Suspense fallback={<AllBlogsLoaderSkelton blogCount={2} />}>
+      <Suspense fallback={<AllBlogsLoaderSkelton blogCount={postsCount || 0} />}>
         <AllBlogs />
       </Suspense>
     </div>
