@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { buttonVariants } from "@/components/ui/button";
 import { CatIcon, HandMetalIcon, PopcornIcon } from "lucide-react";
+import SunflowerImage from "@/components/Home/SunflowerImage";
 const page = () => {
   return (
     <div className="">
@@ -24,20 +24,7 @@ const page = () => {
                 {":P"}
               </p>
             </div>
-            <div className="flex h-full w-full items-center justify-center bg-background">
-              <Image
-                priority={true}
-                loading="eager"
-                src={
-                  "https://res.cloudinary.com/duseu6urj/image/upload/f_auto,q_auto/v1/hammer%20down/nr42nnxkygmzjun3nffu"
-                }
-                width={275}
-                height={275}
-                title="character design from Anton Studios"
-                alt="chill sunflower resting on ground by Anton Studios"
-                className="z-40"
-              />
-            </div>
+            <SunflowerImage/>
           </div>
           <div className="flex flex-col items-center justify-center gap-4">
             <h1 className="text-center text-sm text-primary md:text-base lg:text-lg">
